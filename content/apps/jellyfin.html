@@ -1,0 +1,166 @@
+<!--
+title: Jellyfin
+description: Puts you in control of your media.
+published: true
+date: 2022-08-25T08:16:21.770Z
+tags: apps
+editor: ckeditor
+dateCreated: 2022-08-25T07:59:57.305Z
+-->
+
+<h1>Intro</h1>
+<p>Jellyfin enables you to collect, manage, and stream your media. Run the Jellyfin server on your system and gain access to the leading free-software entertainment system, bells and whistles included.</p>
+<figure class="image image_resized" style="width:38.99%;"><img src="/jellyfin-thumbnail.png"></figure>
+<p>&nbsp;</p>
+<h1><strong>Install</strong></h1>
+<ul>
+  <li>CasaOS App Store</li>
+  <li>CasaOS Custom Install App<ul>
+      <li>AppFile: <a href="/appfile/jellyfin.json">Jellyfin.json</a></li>
+    </ul>
+  </li>
+</ul>
+<p>&nbsp;</p>
+<h1><strong>Usage</strong></h1>
+<p><a href="https://jellyfin.org/docs/general/quick-start.html">https://jellyfin.org/docs/general/quick-start.html</a></p>
+<p>&nbsp;</p>
+<h1><strong>Basic Info</strong></h1>
+<ul>
+  <li>Docker Image: linuxserver/jellyfin</li>
+  <li>Supported Architectures:<ul>
+      <li>x86-64</li>
+      <li>arm64</li>
+      <li>armhf</li>
+    </ul>
+  </li>
+  <li>Dependencies: Nothing</li>
+</ul>
+<p>&nbsp;</p>
+<h1><strong>Settings</strong></h1>
+<h2><strong>Ports</strong></h2>
+<ul>
+  <li>HTTP WebUI<ul>
+      <li>Container: <code>8096</code> <code>TCP</code></li>
+    </ul>
+  </li>
+  <li>HTTPS WebUI (Optional)<ul>
+      <li>Container: <code>8920</code> <code>TCP</code></li>
+    </ul>
+  </li>
+  <li>DLNA LAN Auto-discovery (Optional)<ul>
+      <li>Container: <code>1900</code> <code>UDP</code></li>
+      <li>Host: <code>1900</code> <code>UDP</code></li>
+    </ul>
+  </li>
+  <li>Jellyfin LAN Auto-discovery (Optional)<ul>
+      <li>Container: <code>7359</code> <code>UDP</code></li>
+      <li>Host: <code>7359</code> <code>UDP</code></li>
+    </ul>
+  </li>
+</ul>
+<p>&nbsp;</p>
+<h2><strong>Volumes</strong></h2>
+<ul>
+  <li>Jellyfin Data<ul>
+      <li>Jellyfin data storage location. This can grow very large, 50gb+ is likely for a large collection.</li>
+      <li>Container: <code>/config</code></li>
+    </ul>
+  </li>
+  <li>Media Data<ul>
+      <li>Media goes here. Add as many as needed e.g. /data/movies, /data/tvshows, etc.</li>
+      <li>Container: <code>/data/*</code></li>
+    </ul>
+  </li>
+</ul>
+<p>&nbsp;</p>
+<h2><strong>Environment variables</strong></h2>
+<ul>
+  <li>TimeZone (Optional)<ul>
+      <li>Specify a timezone to use (e.g. Europe/London)</li>
+      <li>Key: <code>TZ</code></li>
+      <li>Value: <code>Europe/London</code></li>
+    </ul>
+  </li>
+  <li>UserID (Optional)<ul>
+      <li>Key: <code>PUID</code></li>
+      <li>Value: <code>1000</code></li>
+    </ul>
+  </li>
+  <li>GroupID (Optional)<ul>
+      <li>Key: <code>PGID</code></li>
+      <li>Value: <code>1000</code></li>
+    </ul>
+  </li>
+</ul>
+<p>&nbsp;</p>
+<h2><strong>Hardware Acceleration</strong></h2>
+<h3>Intel</h3>
+<p><strong>Device</strong></p>
+<ul>
+  <li><code>/dev/dri</code>
+    <ul>
+      <li>Container: <code>/dev/dri</code></li>
+      <li>Host: <code>/dev/dri</code></li>
+    </ul>
+  </li>
+</ul>
+<p>&nbsp;</p>
+<h3>Nvidia</h3>
+<p>Reference: <a href="https://github.com/NVIDIA/nvidia-docker">https://github.com/NVIDIA/nvidia-docker</a></p>
+<p>&nbsp;</p>
+<h3>OpenMAX (Raspberry Pi)</h3>
+<p><strong>Device</strong></p>
+<ul>
+  <li><code>/dev/vcsm</code>
+    <ul>
+      <li>Container: <code>/dev/vcsm</code></li>
+      <li>Host: <code>/dev/vcsm</code></li>
+    </ul>
+  </li>
+  <li><code>/dev/vchiq</code>
+    <ul>
+      <li>Container: <code>/dev/vchiq</code></li>
+      <li>Host: <code>/dev/vchiq</code></li>
+    </ul>
+  </li>
+</ul>
+<p><strong>Volumes</strong></p>
+<ul>
+  <li><code>/opt/vc/lib</code>
+    <ul>
+      <li>Container: <code>/opt/vc/lib</code></li>
+      <li>Host: <code>/opt/vc/lib</code></li>
+    </ul>
+  </li>
+</ul>
+<p>&nbsp;</p>
+<h3>V4L2 (Raspberry Pi)</h3>
+<p>Device</p>
+<ul>
+  <li><code>/dev/video10</code>
+    <ul>
+      <li>Container: <code>/dev/video10</code></li>
+      <li>Host: <code>/dev/video10</code></li>
+    </ul>
+  </li>
+  <li><code>/dev/video11</code>
+    <ul>
+      <li>Container: <code>/dev/video11</code></li>
+      <li>Host: <code>/dev/video11</code></li>
+    </ul>
+  </li>
+  <li><code>/dev/video12</code>
+    <ul>
+      <li>Container: <code>/dev/video12</code></li>
+      <li>Host: <code>/dev/video12</code></li>
+    </ul>
+  </li>
+</ul>
+<p>&nbsp;</p>
+<h1><strong>Support</strong></h1>
+<ul>
+  <li>Official Website: <a href="https://jellyfin.org/">https://jellyfin.org</a></li>
+  <li>Official Docs: <a href="https://jellyfin.org/docs/general/quick-start.html">https://jellyfin.org/docs/general/quick-start.html</a></li>
+  <li>Docker Maintainer: <a href="https://github.com/linuxserver/docker-jellyfin">https://github.com/linuxserver/docker-jellyfin</a></li>
+  <li>IceWhale Discord: <a href="https://discord.gg/knqAbbBbeX">https://discord.gg/knqAbbBbeX</a></li>
+</ul>
